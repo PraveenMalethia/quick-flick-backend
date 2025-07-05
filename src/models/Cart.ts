@@ -13,7 +13,7 @@ const CartItemSchema: Schema = new Schema(
   }
 );
 
-export interface ICart extends Document {
+export interface ICartItem extends Document {
   name: string;
   is_active: boolean;
   createdAt: Date;
@@ -21,4 +21,4 @@ export interface ICart extends Document {
 }
 
 // Create the model
-export const CartItems = mongoose.model<ICart>("CartItem", CartItemSchema);
+export const CartItems = mongoose.model<ICartItem>("CartItem", CartItemSchema);

@@ -16,7 +16,7 @@ const AddressSchema: Schema = new Schema(
   }
 );
 
-export interface ICart extends Document {
+export interface IAddress extends Document {
   name: string;
   is_active: boolean;
   createdAt: Date;
@@ -24,4 +24,4 @@ export interface ICart extends Document {
 }
 
 // Create the model
-export const Addresses = mongoose.model<ICart>("Address", AddressSchema);
+export const Addresses = mongoose.model<IAddress>("Address", AddressSchema);
