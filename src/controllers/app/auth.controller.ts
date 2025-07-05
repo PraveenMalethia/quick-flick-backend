@@ -34,7 +34,6 @@ export const login: RequestHandler = async (req, res) => {
     let user = await User.findOne({ phone });
 
     if (!user) {
-      // Create new user without initializing vault
       user = await User.create({
         phone
       });
