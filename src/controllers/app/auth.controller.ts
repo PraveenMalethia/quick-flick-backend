@@ -63,3 +63,33 @@ export const login: RequestHandler = async (req, res) => {
     });
   }
 };
+
+
+export const UpdateProfile: RequestHandler = async (req, res) => {
+  try {
+    const customReq = req as CustomRequest;
+    const _id = customReq.userId;
+    const { name, phone, profile_picture } = req.body;
+
+    const updatedUser = await Users.findByIdAndUpdate(
+      _id,
+      { name, phone, profile_picture },
+      { new: true }
+    );
+
+    if (!updatedUser) {
+      res.status(404).json({
+        message: "User not found",
+      });
+      return;
+    }
+
+    res.status(200).json({ user: updatedUser });
+  } catch (error: any) {
+    LOGGER.error(`Error while updating user profile: ${error}`);
+    res.status(500).json({
+      message: "Something went wrong while updating user profile",
+      error: error instanceof Error ? error.message : "Unknown error",
+    });
+  }
+}
