@@ -1,0 +1,10 @@
+services:
+  backend:
+    container_name: quick-flick
+    build:
+      context: .
+    ports:
+      - 3999:5000
+    environment:
+      - MONGO_URI=mongodb+srv://princemalethia36:V93iWhZLiSizfzyY@cluster0.dvyiwjq.mongodb.net/quickflick?retryWrites=true&w=majority&appName=Cluster0
+      - JWT_KEY=3iueycnn2378yer7823yr89q2hfdwehio
