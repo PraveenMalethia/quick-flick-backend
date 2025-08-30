@@ -18,4 +18,4 @@ export interface ICategory extends Document {
 }
 
 // Create the model
-export const ICategory = mongoose.model<ICategory>("Categories", CategorySchema);
+export const Category = mongoose.model<ICategory>("Categories", CategorySchema);

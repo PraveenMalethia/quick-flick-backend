@@ -9,6 +9,7 @@ import { accessLogStream } from "./utils/logger";
 import auth_router from "./routes/app/auth.routes";
 import { errorHandler } from "./middleware/errorHandler";
 import address_router from './routes/app/address.routes';
+import category_router from './routes/app/category.routes';
 
 
 // MongoDB connection URL
@@ -41,6 +42,7 @@ app.use(`/health-check`, (req, res) => {
 // App routes
 app.use(`${APP_API_BASE}/auth`, auth_router);
 app.use(`${APP_API_BASE}/address`, address_router);
+app.use(`${APP_API_BASE}/category`, category_router);
 
 app.use(errorHandler);
 // Start server
